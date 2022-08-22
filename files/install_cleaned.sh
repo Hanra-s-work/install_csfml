@@ -11,6 +11,8 @@ PACKAGE_MANAGER=dnf
 SCRIPT_SRC="https://github.com/Pakkro/install-csfml"
 GITHUB_GABRIEL="https://github.com/gabrielhamel"
 GITHUB_HENRY="https://github.com/HenraL"
+TEST_CODE="https://github.com/Hanra-s-work/install_csfml/blob/main/files/test_code/test_code.zip?raw=true"
+ZIP_NAME="test_code.zip"
 TRUE=1
 FALSE=0
 SFML_PATH=""
@@ -62,6 +64,15 @@ function function_is_admin {
             echo "It will thus ask them when required."
         fi
     fi
+}
+
+function download_test {
+    echo "Downloading test_file"
+    echo "Running: curl -Lo $TEST_CODE -o $ZIP_NAME"
+    curl -Lo $TEST_CODE -o $ZIP_NAME
+    echo "Extracting content"
+    echo "Running: unzip -qq -u -d . $ZIP_NAME"
+    unzip -qq -u -d . $ZIP_NAME
 }
 
 function give_credits {
@@ -399,6 +410,9 @@ echo ""
 echo ""
 refresh_package_cache $PACKAGE_MANAGER
 install_requirements $PACKAGE_MANAGER
+echo ""
+echo "Downloading test code"
+download_test
 install_documentation $PACKAGE_MANAGER
 install_CSFML_devel $PACKAGE_MANAGER
 compile_test $CSFML_TEST_FILE

@@ -2,7 +2,8 @@
 SCRIPT_SRC="https://github.com/Pakkro/install-csfml"
 GITHUB_GABRIEL="https://github.com/gabrielhamel"
 GITHUB_HENRY="https://github.com/HenraL"
-TEST_CODE=""
+TEST_CODE="https://github.com/Hanra-s-work/install_csfml/blob/main/files/test_code/test_code.zip?raw=true"
+ZIP_NAME="test_code.zip"
 TRUE=1
 FALSE=0
 CSFML_TEST_FILE=test.c
@@ -17,6 +18,14 @@ CSFML_SOURCE_URL="https://www.sfml-dev.org/files/CSFML-2.5.1-sources.zip"
 CSFML_ZIP="CSFML.zip"
 SFML_ZIP="SFML.zip"
 
+function download_test {
+    echo "Downloading test_file"
+    echo "Running: curl -Lo $TEST_CODE -o $ZIP_NAME"
+    curl -Lo $TEST_CODE -o $ZIP_NAME
+    echo "Extracting content"
+    echo "Running: unzip -qq -u -d . $ZIP_NAME"
+    unzip -qq -u -d . $ZIP_NAME
+}
 
 function yes_no_question {
     while true; do
@@ -128,6 +137,9 @@ then
     echo "Download CSFML Sources"
     echo "Running: curl -Lo '$CSFML_ZIP' $CSFML_SOURCE_URL"
     curl -Lo "$CSFML_ZIP" $CSFML_SOURCE_URL
+    echo ""
+    echo "Downloading test code"
+    download_test
     echo ""
     echo "Unpacking ressources"
     echo "Unzip SFML"
