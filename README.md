@@ -41,5 +41,5 @@ Open a terminal in the folder in wich it is located
 enter `chmod +x uninstall_csfml.sh && sudo ./uninstall_csfml.sh`
 
 ## Authors
-This program was created by [(c) Henry Letellier (@HenraL)](https://github.com/HenraL)
+This program was created by [(c) Henry Letellier (@HenraL)](https://github.com/HenraL)\
 The original source code used was created by [@gabrielhamel](https://github.com/gabrielhamel)
