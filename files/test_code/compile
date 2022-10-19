@@ -1,0 +1,16 @@
+#!/bin/bash
+BINARY=test.out
+gcc test.c -lcsfml-graphics -lcsfml-audio -o $BINARY
+while true; do
+    read -p "Run the program? [(Y)es/(n)o]" yn
+    case $yn in
+        [Yy]* )
+            ./$BINARY
+            break;;
+        [Nn]* )
+            break;;
+        * )
+            echo "Please enter yes or no."
+            echo "You have entered: $yn";;
+    esac
+done
