@@ -84,7 +84,7 @@ then
     if [[ $USR_ANSW -eq $TRUE ]]
     then
         sudo $0
-        exit 1
+        exit 0
     else
         echo "You have decided to not grant administator rights to the program."
         echo "It will thus ask them when required."
